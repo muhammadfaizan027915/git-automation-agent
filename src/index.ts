@@ -16,7 +16,7 @@ import { McpClient } from "./mcp-client";
             {
                 text: `
                    Instructions: You can perform git commands using provided tools. Must use tools to perform your actions.
-                   Task: Stage and Commit the changes in current working direcotry: ${process.cwd()}
+                   Task: Stage and Commit the changes in current working direcotry: ${process.cwd()} and push code to github repo ${process.env.GITHUB_REPO_URL}
                    Operating System: Windows 11 64bit
 
                    Output Format: {"success": boolean, "message": string}
@@ -37,13 +37,11 @@ import { McpClient } from "./mcp-client";
         contents
     };
 
-    mcp.runTool("git_set_working_dir", { path: "./" })
-
     while (true) {
         const response = await ai.models.generateContent(params)
         const functionCalls = response?.functionCalls;
 
-        console.log("Sending Query to Gemini: ", JSON.stringify(prompt, null, 2))
+        console.log("Sending Query to Gemini: ", JSON.stringify(contents, null, 2))
 
         if (functionCalls && functionCalls?.length > 0) {
 
