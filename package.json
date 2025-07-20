@@ -1,0 +1,31 @@
+{
+  "name": "mcp",
+  "version": "1.0.0",
+  "description": "Practice project for MCP",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "npm run build && node build/src/index.js",
+    "dev": "dotenv -e .env -- npx tsx src/index.ts"
+  },
+  "keywords": [
+    "MCP",
+    "Generative",
+    "AI",
+    "Gemini",
+    "Open",
+    "AI"
+  ],
+  "author": "Muhammad Faizan",
+  "license": "ISC",
+  "dependencies": {
+    "@google/genai": "^1.0.0",
+    "@modelcontextprotocol/sdk": "^1.16.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.15",
+    "dotenv-cli": "^8.0.0",
+    "typescript": "^5.8.3"
+  }
+}
